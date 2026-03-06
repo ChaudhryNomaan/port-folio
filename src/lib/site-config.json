@@ -1,0 +1,72 @@
+{
+  "brand": {
+    "name": "portfolio",
+    "logoInitial": "P",
+    "logoImage": "/uploads/1772794867446-screenshot_2026_01_25_153704.png"
+  },
+  "hero": {
+    "upperLabel": "portfolio",
+    "mainTitleLine1": "Crafting Digital",
+    "mainTitleLine2": "Masterpieces",
+    "subtext": "",
+    "location": "",
+    "availability": null
+  },
+  "about": {
+    "headlineLine1": "Elegance in",
+    "headlineLine2": "Complexity.",
+    "subheading": "I believe that the best digital experiences are felt, not just seen.",
+    "p1": "My studio operates at the intersection of architectural precision...",
+    "philosophy": null,
+    "aboutImage": "/uploads/1772707878668-screenshot_2026_01_27_230845.png",
+    "capabilities": [
+      "Architectural UI/UX",
+      "Motion Design",
+      "Next.js",
+      "React",
+      "TypeScript"
+    ]
+  },
+  "projects": [
+    {
+      "id": "liza-pharmacy",
+      "title": "Liza-Pharmacy",
+      "category": "Health Tech",
+      "featured": true,
+      "coverImage": "/uploads/1772707878668-screenshot_2026_01_27_230845.png",
+      "stack": [
+        "Next.js",
+        "Supabase",
+        "Tailwind"
+      ],
+      "description": "A luxury community health platform.",
+      "gallery": [
+        "/uploads/1772707878668-screenshot_2026_01_27_230845.png"
+      ]
+    },
+    {
+      "id": "glober-market",
+      "title": "Glober-Market",
+      "category": "Global Services",
+      "featured": true,
+      "coverImage": "/uploads/1772707878668-screenshot_2026_01_27_230845.png",
+      "stack": [
+        "TypeScript",
+        "Turbopack",
+        "Framer Motion"
+      ],
+      "description": "Premium marketplace for professional service providers.",
+      "gallery": []
+    }
+  ],
+  "socials": [
+    {
+      "label": "LI",
+      "url": "#"
+    },
+    {
+      "label": "IG",
+      "url": "#"
+    }
+  ]
+}
