@@ -223,8 +223,7 @@ export default function AdminDashboard({
                         <span className="lg:hidden ml-2 text-[10px] font-bold uppercase tracking-widest">Mark {msg.read ? 'Unread' : 'Read'}</span>
                       </button>
                     </form>
-                    <form action={deleteMessage.bind(null, msg.id)} className="flex-1 lg:flex-initial">
-                      <button type="submit" className="h-12 w-full lg:w-14 lg:h-14 bg-zinc-950 border border-zinc-800 text-zinc-600 hover:bg-red-900/30 hover:text-red-500 hover:border-red-500/30 rounded-xl md:rounded-2xl flex items-center justify-center transition-all">
+<form action={async () => { await deleteMessage(msg.id); }} className="flex-1 lg:flex-initial">                      <button type="submit" className="h-12 w-full lg:w-14 lg:h-14 bg-zinc-950 border border-zinc-800 text-zinc-600 hover:bg-red-900/30 hover:text-red-500 hover:border-red-500/30 rounded-xl md:rounded-2xl flex items-center justify-center transition-all">
                         <Trash2 className="w-5 h-5" />
                         <span className="lg:hidden ml-2 text-[10px] font-bold uppercase tracking-widest">Delete</span>
                       </button>
