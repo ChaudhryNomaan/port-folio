@@ -23,7 +23,7 @@ export default function AboutPage() {
   };
 
   // Dynamic Accent Color from Admin
-  const accentColor = siteData.about.accentColor || "#f59e0b";
+const accentColor = (siteData.about as any).accentColor || "#f59e0b";
 
   return (
     <main ref={containerRef} className="relative min-h-screen pt-56 pb-40 bg-[#0a0a0a] overflow-hidden">
