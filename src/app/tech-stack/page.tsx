@@ -16,10 +16,12 @@ const toolMetadata: Record<string, { category: string, desc: string }> = {
 export default function TechStackPage() {
   const easeExpo = [0.19, 1, 0.22, 1];
   
-  // This pulls EVERYTHING from your JSON file
-  const dynamicTools = siteConfig.about.capabilities || [];
+  // FIX: Cast siteConfig as any to prevent "property does not exist" errors
+  const config = siteConfig as any;
+  const dynamicTools = config.about?.capabilities || [];
 
-  const containerVariants = {
+  // FIX: Cast variants as any to allow the cubic-bezier array (easeExpo)
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -27,7 +29,7 @@ export default function TechStackPage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
       opacity: 1, 
@@ -62,7 +64,7 @@ export default function TechStackPage() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-white/5"
         >
-          {dynamicTools.map((toolName, index) => {
+          {dynamicTools.map((toolName: string, index: number) => {
             const meta = toolMetadata[toolName] || { 
               category: "Technology", 
               desc: "Specialized expertise utilized to deliver high-performance digital solutions and seamless user experiences." 
