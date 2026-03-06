@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   const containerRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const projects = projectData.projects || [];
+const projects = (projectData.projects as any[]) || [];
 
   // Parallax logic for background elements
   const { scrollYProgress } = useScroll({
