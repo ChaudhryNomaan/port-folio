@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 // 1. Import the site configuration
-import siteData from '../lib/site-config.json';
+import siteConfig from '../lib/site-config.json';
 
 export default function Hero() {
+  // FIX: Cast siteData as any to bypass strict property checks
+  const siteData = siteConfig as any;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   
@@ -30,7 +33,8 @@ export default function Hero() {
   const textOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
 
-  const containerVariants = {
+  // FIX: Explicitly typing variants as Variants from framer-motion
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -38,7 +42,7 @@ export default function Hero() {
     },
   };
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { y: "100%", opacity: 0 },
     visible: { 
       y: 0, 
@@ -78,8 +82,8 @@ export default function Hero() {
           <motion.div variants={titleVariants} className="flex items-center justify-center gap-6">
             <span className="w-12 h-[1px] bg-amber-500/30" />
             <span className="text-amber-500 text-[10px] uppercase tracking-[1em] font-bold">
-              {/* Replace "Liza Studio — 2026" */}
-              {siteData?.hero?.upperLabel || "Liza Studio — 2026"}            </span>
+              {siteData?.hero?.upperLabel || "Liza Studio — 2026"}
+            </span>
             <span className="w-12 h-[1px] bg-amber-500/30" />
           </motion.div>
         </div>
@@ -90,8 +94,7 @@ export default function Hero() {
             variants={titleVariants}
             className="text-[13vw] md:text-[8.5vw] font-light tracking-tighter leading-[0.8] uppercase text-white"
           >
-            {/* Replace "Crafting Digital" */}
-            {siteData.hero.mainTitleLine1}
+            {siteData?.hero?.mainTitleLine1}
           </motion.h1>
         </div>
         <div className="overflow-hidden py-2 md:py-4 -mt-2 md:-mt-6 mb-12">
@@ -99,16 +102,14 @@ export default function Hero() {
             variants={titleVariants}
             className="text-[13vw] md:text-[8.5vw] font-light tracking-tighter leading-[0.8] text-amber-500/90 italic font-serif lowercase"
           >
-            {/* Replace "Masterpieces" */}
-            {siteData.hero.mainTitleLine2}
+            {siteData?.hero?.mainTitleLine2}
           </motion.h1>
         </div>
 
         {/* SUBTEXT & CTA */}
         <motion.div variants={titleVariants} className="flex flex-col items-center gap-16">
-          {/* Replace subtext paragraph */}
           <p className="text-neutral-500 max-w-2xl mx-auto text-lg md:text-2xl font-light leading-relaxed text-balance">
-            {siteData.hero.subtext}
+            {siteData?.hero?.subtext}
           </p>
 
           <motion.a
@@ -151,9 +152,8 @@ export default function Hero() {
       {/* VERSIONING DATA */}
       <div className="hidden lg:flex absolute left-12 bottom-12 items-center gap-4 text-[10px] font-mono text-neutral-800 tracking-[0.2em] uppercase">
         <span className="text-amber-500/20">●</span>
-        {/* Replace footer info */}
-        <span>Availability: {siteData.hero.availability}</span>
-        <span className="ml-8">{siteData.hero.location}</span>
+        <span>Availability: {siteData?.hero?.availability}</span>
+        <span className="ml-8">{siteData?.hero?.location}</span>
       </div>
     </section>
   );

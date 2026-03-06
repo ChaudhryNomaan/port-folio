@@ -17,8 +17,7 @@ const Footer = () => {
 
   // Helper to find social links from the array structure saved by the Admin
   const getSocialUrl = (label: string) => {
-    return siteSettings?.socials?.find((s: any) => s.label === label)?.url;
-  };
+return (siteSettings?.socials?.find((s: any) => s.label === label) as any)?.url;  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
