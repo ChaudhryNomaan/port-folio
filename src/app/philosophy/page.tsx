@@ -120,7 +120,7 @@ const accentColor = (siteData.about as any).accentColor || "#f59e0b";
               <p className="text-[10px] uppercase tracking-[0.5em] text-neutral-500 font-bold">Experience</p>
               <div className="flex items-end gap-3">
                 <span className="text-7xl font-light text-white italic font-serif leading-none tabular-nums">
-                  {siteData.about.experienceYears}
+{(siteData.about as any).experienceYears}
                 </span>
                 <div className="pb-1 text-neutral-500">
                    <p className="text-[9px] uppercase tracking-widest leading-tight">Years of</p>
