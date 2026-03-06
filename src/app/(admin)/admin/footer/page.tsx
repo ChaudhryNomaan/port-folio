@@ -55,7 +55,7 @@ export default function ManageFooter() {
   const [isPending, startTransition] = useTransition();
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const footer = siteSettings?.footer || {};
+const footer = (siteSettings?.footer || {}) as any;
   const socials = footer.socials || {};
 
   const handleSave = async (formData: FormData) => {
