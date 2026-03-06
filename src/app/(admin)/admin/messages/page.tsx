@@ -218,8 +218,7 @@ export default function AdminDashboard({
 
                   {/* Actions */}
                   <div className="flex flex-row lg:flex-col gap-3 pt-4 lg:pt-0 border-t lg:border-t-0 border-zinc-800/50">
-                    <form action={toggleMessageRead.bind(null, msg.id)} className="flex-1 lg:flex-initial">
-                      <button type="submit" className={`h-12 w-full lg:w-14 lg:h-14 rounded-xl md:rounded-2xl flex items-center justify-center transition-colors ${msg.read ? 'text-zinc-600 bg-zinc-950 border border-zinc-800' : 'text-amber-500 bg-amber-500/10 border border-amber-500/20'}`}>
+<form action={async () => { await toggleMessageRead(msg.id); }} className="flex-1 lg:flex-initial">                      <button type="submit" className={`h-12 w-full lg:w-14 lg:h-14 rounded-xl md:rounded-2xl flex items-center justify-center transition-colors ${msg.read ? 'text-zinc-600 bg-zinc-950 border border-zinc-800' : 'text-amber-500 bg-amber-500/10 border border-amber-500/20'}`}>
                         {msg.read ? <Circle className="w-5 h-5" /> : <CheckCircle className="w-5 h-5" />}
                         <span className="lg:hidden ml-2 text-[10px] font-bold uppercase tracking-widest">Mark {msg.read ? 'Unread' : 'Read'}</span>
                       </button>
